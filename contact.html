@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Bryan's Café</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Logo"></a></div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 class="page-title">CONTACT US</h1>
+
+        <div class="contact-container">
+
+            <section class="form-section">
+                <h2>Send us an Enquiry</h2>
+                <form id="enquiryForm" onsubmit="submitForm(event)">
+                    <div class="form-group">
+                        <label for="fname">First Name:</label>
+                        <input type="text" id="fname" placeholder="Enter your first name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lname">Last Name:</label>
+                        <input type="text" id="lname" placeholder="Enter your last name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject:</label>
+                        <input type="text" id="subject" placeholder="What is this regarding?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message Body:</label>
+                        <textarea id="message" placeholder="Type your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </section>
+
+            <section class="branches-section">
+                <h2>Our Branches</h2>
+                <div id="branch-list"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Bryan's Café | <a href="privacy.html" target="_blank">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        function submitForm(event) {
+            event.preventDefault();
+            alert('Message has been sent!');
+
+            document.getElementById("enquiryForm").reset();
+
+            return false;
+        }
+        // Fetch Branch Data from branches.xml
+        fetch('xml/branches.xml')
+            .then(response => response.text())
+            .then(data => {
+                let xmlDoc = new DOMParser().parseFromString(data, "text/xml");
+                let branches = xmlDoc.getElementsByTagName("branch");
+                let output = "";
+                for (let i = 0; i < branches.length; i++) {
+                    output += `
+                        <div class="branch-card">
+                            <p><strong>Address:</strong> ${branches[i].getElementsByTagName("address")[0].textContent}</p>
+                            <p><strong>Contact:</strong> ${branches[i].getElementsByTagName("phone")[0].textContent}</p>
+                            <p><strong>Hours:</strong> ${branches[i].getElementsByTagName("hours")[0].textContent}</p>
+                            <a href="${branches[i].getElementsByTagName("maplink")[0].textContent}" target="_blank">View on Google Maps</a>
+                        </div><hr>`;
+                }
+                document.getElementById("branch-list").innerHTML = output;
+            });
+    </script>
+    <script src="script.js"></script>
+</body>
+
+>>>>>>> 033aa86 (Initial commit)
+</html>

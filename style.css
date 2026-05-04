@@ -1,0 +1,678 @@
+<<<<<<< HEAD
+/* Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Navigation */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.logo img {
+    max-width: 120px;
+    height: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Hamburger Menu Base Styles */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Main Sections */
+main {
+    padding: 40px 5%;
+}
+
+.hero-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.content-row {
+    display: flex;
+    padding: 40px 5%;
+    align-items: center;
+    flex-wrap: wrap;
+    /* Allows wrapping on mobile */
+}
+
+.text-box,
+.image-box {
+    flex: 1;
+    min-width: 300px;
+    /* Forces stack on small screens */
+    padding: 20px;
+}
+
+.image-box img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: white;
+}
+
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+/* Responsive adjustment for the history section */
+.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Responsive adjustments moved to the bottom of the file */
+
+/* --- MENU PAGE SPECIFIC STYLES (Matching menu-desktop.PNG) --- */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    /* Responsive grid */
+    gap: 30px;
+}
+
+.menu-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    /* Keeps image corners rounded */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    /* Subtle hover effect */
+}
+
+.menu-card img {
+    width: 100%;
+    height: 200px;
+    /* Fixed height for consistency */
+    object-fit: cover;
+    /* Ensures image covers area without stretching */
+}
+
+.menu-details {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-details h3 {
+    margin: 0 0 10px 0;
+    color: #e67e22;
+    /* Accents color for titles */
+    font-size: 1.4em;
+}
+
+.menu-details .price {
+    font-weight: bold;
+    color: #27ae60;
+    /* Green for price */
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.menu-details p {
+    font-size: 0.95em;
+    color: #666;
+    margin: 0;
+}
+
+/* --- CONTACT PAGE SPECIFIC STYLES (Matching contact-desktop.PNG) --- */
+.contact-container {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.form-section,
+.branches-section {
+    flex: 1;
+    /* Takes up equal width */
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2,
+.branches-section h2 {
+    color: #e67e22;
+    margin-top: 0;
+}
+
+/* Form Element Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /* Crucial for padding */
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+button.submit-btn {
+    background-color: #e67e22;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button.submit-btn:hover {
+    background-color: #d35400;
+}
+
+/* Branch List Styling */
+.branch-card {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.branch-card p {
+    margin: 8px 0;
+}
+
+.branch-card strong {
+    color: #333;
+}
+
+.map-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #e67e22;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* --- RESPONSIVE STYLES (Tablets & Mobile) --- */
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar {
+        flex-direction: row; /* Keep hamburger and logo inline */
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 15px;
+    }
+    .hamburger {
+        display: flex;
+    }
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-links {
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+        padding: 0;
+    }
+    .nav-links.active {
+        display: flex; /* Show when active class is toggled */
+    }
+    .nav-links li {
+        margin: 5px 10px;
+    }
+
+    /* Main Sections (Index) */
+    .content-row, .reverse {
+        flex-direction: column; /* Stack text and images vertically */
+        padding: 20px 5%;
+        text-align: center;
+    }
+
+    /* Contact Page */
+    .contact-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .form-section, .branches-section {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Smaller screens (Phones) */
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .nav-links li {
+        margin: 0;
+    }
+    
+    .hero-image {
+        max-height: 250px;
+    }
+    
+    h1.page-title, h2 {
+        font-size: 1.5em;
+    }
+=======
+/* Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Navigation */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.logo img {
+    max-width: 120px;
+    height: auto;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Hamburger Menu Base Styles */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Main Sections */
+main {
+    padding: 40px 5%;
+}
+
+.hero-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.content-row {
+    display: flex;
+    padding: 40px 5%;
+    align-items: center;
+    flex-wrap: wrap;
+    /* Allows wrapping on mobile */
+}
+
+.text-box,
+.image-box {
+    flex: 1;
+    min-width: 300px;
+    /* Forces stack on small screens */
+    padding: 20px;
+}
+
+.image-box img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: white;
+}
+
+footer a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+/* Responsive adjustment for the history section */
+.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Responsive adjustments moved to the bottom of the file */
+
+/* --- MENU PAGE SPECIFIC STYLES (Matching menu-desktop.PNG) --- */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    /* Responsive grid */
+    gap: 30px;
+}
+
+.menu-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    /* Keeps image corners rounded */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    /* Subtle hover effect */
+}
+
+.menu-card img {
+    width: 100%;
+    height: 200px;
+    /* Fixed height for consistency */
+    object-fit: cover;
+    /* Ensures image covers area without stretching */
+}
+
+.menu-details {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-details h3 {
+    margin: 0 0 10px 0;
+    color: #e67e22;
+    /* Accents color for titles */
+    font-size: 1.4em;
+}
+
+.menu-details .price {
+    font-weight: bold;
+    color: #27ae60;
+    /* Green for price */
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.menu-details p {
+    font-size: 0.95em;
+    color: #666;
+    margin: 0;
+}
+
+/* --- CONTACT PAGE SPECIFIC STYLES (Matching contact-desktop.PNG) --- */
+.contact-container {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.form-section,
+.branches-section {
+    flex: 1;
+    /* Takes up equal width */
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2,
+.branches-section h2 {
+    color: #e67e22;
+    margin-top: 0;
+}
+
+/* Form Element Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /* Crucial for padding */
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+button.submit-btn {
+    background-color: #e67e22;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button.submit-btn:hover {
+    background-color: #d35400;
+}
+
+/* Branch List Styling */
+.branch-card {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.branch-card p {
+    margin: 8px 0;
+}
+
+.branch-card strong {
+    color: #333;
+}
+
+.map-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #e67e22;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* --- RESPONSIVE STYLES (Tablets & Mobile) --- */
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar {
+        flex-direction: row; /* Keep hamburger and logo inline */
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 15px;
+    }
+    .hamburger {
+        display: flex;
+    }
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-links {
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+        padding: 0;
+    }
+    .nav-links.active {
+        display: flex; /* Show when active class is toggled */
+    }
+    .nav-links li {
+        margin: 5px 10px;
+    }
+
+    /* Main Sections (Index) */
+    .content-row, .reverse {
+        flex-direction: column; /* Stack text and images vertically */
+        padding: 20px 5%;
+        text-align: center;
+    }
+
+    /* Contact Page */
+    .contact-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .form-section, .branches-section {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Smaller screens (Phones) */
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    .nav-links li {
+        margin: 0;
+    }
+    
+    .hero-image {
+        max-height: 250px;
+    }
+    
+    h1.page-title, h2 {
+        font-size: 1.5em;
+    }
+>>>>>>> 033aa86 (Initial commit)
+}

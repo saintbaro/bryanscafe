@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Bryan's Café</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Logo"></a></div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="menu-container">
+        <h1 class="page-title">Our Menu</h1>
+        <div class="container my-5">
+            <div class="accordion" id="menuAccordion"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Bryan's Café | <a href="privacy.html" target="_blank">Privacy Policy</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Set Year
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Fetch and Display XML Data
+        fetch('xml/menu.xml')
+            .then(response => response.text())
+            .then(data => {
+                let xmlDoc = new DOMParser().parseFromString(data, "text/xml");
+                let items = xmlDoc.getElementsByTagName("item");
+
+                // Initialize an object to group items by category
+                let groupedItems = {
+                    "Meals": [],
+                    "Coffee": [],
+                    "Other Beverages": []
+                };
+
+                // Loop through items and add to groups
+                for (let i = 0; i < items.length; i++) {
+                    let category = items[i].getAttribute("category");
+
+                    // Sanity check to ensure category matches our groups
+                    if (groupedItems[category]) {
+                        groupedItems[category].push({
+                            name: items[i].getElementsByTagName("name")[0].textContent,
+                            price: items[i].getElementsByTagName("price")[0].textContent,
+                            desc: items[i].getElementsByTagName("description")[0].textContent,
+                            img: items[i].getElementsByTagName("image")[0].textContent
+                        });
+                    }
+                }
+
+                // 5. GENERATE THE ACCORDION HTML
+                let accordionHTML = "";
+                let sectionIndex = 1;
+
+                for (let category in groupedItems) {
+                    if (groupedItems[category].length === 0) continue; // Skip empty categories
+
+                    let sectionId = `section${sectionIndex}`; // Unique ID for each panel
+                    let isFirst = sectionIndex === 1;
+
+                    let btnClass = isFirst ? "accordion-button" : "accordion-button collapsed";
+                    let ariaExp = isFirst ? "true" : "false";
+                    let collapseClass = isFirst ? "accordion-collapse collapse show" : "accordion-collapse collapse";
+
+                    accordionHTML += `
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-${sectionId}">
+                                <button class="${btnClass}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-${sectionId}" aria-expanded="${ariaExp}" aria-controls="collapse-${sectionId}">
+                                    ${category}
+                                </button>
+                            </h2>
+                            <div id="collapse-${sectionId}" class="${collapseClass}" aria-labelledby="heading-${sectionId}" data-bs-parent="#menuAccordion">
+                                <div class="accordion-body">
+                                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                                        ${generateItemCards(groupedItems[category])} </div>
+                                </div>
+                            </div>
+                        </div>`;
+                    sectionIndex++;
+                }
+
+                // Insert the generated HTML into the accordion container
+                document.getElementById("menuAccordion").innerHTML = accordionHTML;
+            });
+
+        // 6. HELPER FUNCTION TO GENERATE CARDS FOR EACH ITEM
+        function generateItemCards(itemsArray) {
+            let cardsHTML = "";
+            for (let item of itemsArray) {
+                cardsHTML += `
+                    <div class="col">
+                        <div class="card h-100 menu-card shadow-sm">
+                            <img src="${item.img}" class="card-img-top" alt="${item.name}">
+                            <div class="card-body menu-details">
+                                <h5 class="card-title">${item.name}</h5>
+                                <p class="price text-success fs-5 fw-bold">${item.price}</p>
+                                <p class="card-text text-muted">${item.desc}</p>
+                            </div>
+                        </div>
+                    </div>`;
+            }
+            return cardsHTML;
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

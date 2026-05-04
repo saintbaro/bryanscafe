@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About - Bryan's Café</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+        <header>
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo.png" alt="Bryan's Cafe Logo"></a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">About</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="banner">
+                <img src="images/banner.jpg" alt="Bryan's Cafe Banner" class="hero-image">
+            </section>
+
+            <section class="content-row">
+                <div class="text-box">
+                    <h2>ABOUT</h2>
+                    <p>Welcome to Bryan’s Café, your local spot for fresh meals and organic coffee. We pride ourselves
+                        on
+                        using locally sourced ingredients to create a menu that is both delicious and healthy.</p>
+                </div>
+                <div class="image-box">
+                    <img src="images/about.jpg" alt="Inside Bryan's Cafe">
+                </div>
+            </section>
+
+            <section class="content-row reverse">
+                <div class="text-box">
+                    <h2>HISTORY</h2>
+                    <p>Established with a passion for community, Bryan’s Café started as a small coffee cart and has
+                        grown
+                        into three vibrant branches across Sydney. Our mission remains the same: great food, great
+                        people.
+                    </p>
+                </div>
+                <div class="image-box">
+                    <img src="images/history.jpg" alt="Historical photo of the Cafe">
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; <span id="year"></span> Bryan's Café | <a href="privacy.html" target="_blank">Privacy Policy</a>
+            </p>
+        </footer>
+
+        <script>
+            document.getElementById("year").innerHTML = new Date().getFullYear();
+        </script>
+        <script src="script.js"></script>
+    </body>

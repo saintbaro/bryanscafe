@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE menu SYSTEM "menu.dtd">
+<menu>
+    <item category="Meals">
+        <name>Beetroot and feta salad</name>
+        <price>$15.00</price>
+        <description>Suitable for vegetarians, made with fresh beetroot and imported feta cheese.</description>
+        <image>images/salad.jpg</image>
+    </item>
+    <item category="Meals">
+        <name>Sourdough Rye Sandwich</name>
+        <price>$18.00</price>
+        <description>Cheese and salad sandwich made with organic sourdough rye bread.</description>
+        <image>images/sandwich.jpg</image>
+    </item>
+    <item category="Meals">
+        <name>Bacon and Egg Roll</name>
+        <price>$14.00</price>
+        <description>Classic breakfast favorite with crispy bacon and a fresh egg on a brioche bun.</description>
+        <image>images/bacon_egg_roll.jpg</image>
+    </item>
+    <item category="Meals">
+        <name>Beef Burger</name>
+        <price>$19.00</price>
+        <description>Juicy, 100% grass-fed beef patty with lettuce, tomato, and our secret sauce.</description>
+        <image>images/beef_burger.jpg</image>
+    </item>
+
+    <item category="Coffee">
+        <name>Small Coffee (8oz)</name>
+        <price>$3.50</price>
+        <description>A compact shot. Please specify your desired coffee type (e.g., Espresso, Piccolo) when ordering.</description>
+        <image>images/smallcoffee.jpg</image>
+    </item>
+    <item category="Coffee">
+        <name>Medium Coffee (12oz)</name>
+        <price>$4.50</price>
+        <description>Our standard size. Please specify your desired coffee type (e.g., Latte, Flat White) when ordering.</description>
+        <image>images/mediumcoffee.jpg</image>
+    </item>
+    <item category="Coffee">
+        <name>Large Coffee (16oz)</name>
+        <price>$5.50</price>
+        <description>A substantial serving. Please specify your desired coffee type (e.g., Cappuccino, Long Black) when ordering.</description>
+        <image>images/largecoffee.jpg</image>
+    </item>
+
+    <item category="Other Beverages">
+        <name>Soda</name>
+        <price>$3.00</price>
+        <description>Chilled sparkling soft drink (various flavors available).</description>
+        <image>images/soda.jpg</image>
+    </item>
+    <item category="Other Beverages">
+        <name>Water</name>
+        <price>$2.50</price>
+        <description>Still mineral water (500ml bottle).</description>
+        <image>images/water.jpg</image>
+    </item>
+    <item category="Other Beverages">
+        <name>Fresh Juice</name>
+        <price>$6.00</price>
+        <description>Daily fresh-pressed juice (e.g., Orange, Apple, or Watermelon).</description>
+        <image>images/juice.jpg</image>
+    </item>
+</menu>
